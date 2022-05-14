@@ -1,6 +1,9 @@
-package com.Psuti.StudentManager.domain;
+package com.Psuti.StudentManager.entity;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,23 +11,17 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-@Getter
-@Setter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Subject {
+@Getter
+@Setter
+public class AdminEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-
-    private Integer hours;
-
-    private Integer grade;
-
-    private String teacher;
-    private String statement;
+    private String username;
+    private String login;
+    private String password;
 }

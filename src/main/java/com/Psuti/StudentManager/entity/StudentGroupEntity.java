@@ -1,4 +1,4 @@
-package com.Psuti.StudentManager.domain;
+package com.Psuti.StudentManager.entity;
 
 import lombok.*;
 
@@ -11,7 +11,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StudentGroup {
+@Table(name = "StudentGroup")
+public class StudentGroupEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,7 +25,9 @@ public class StudentGroup {
     private String Name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
-    private List<Student> studentList;
+    private List<StudentEntity> studentEntities;
 
-    private String statement;
+    @ManyToOne
+    @JoinColumn(name = "statement_id")
+    private StatementEntity statementEntity;
 }

@@ -1,4 +1,4 @@
-package com.Psuti.StudentManager.domain;
+package com.Psuti.StudentManager.entity;
 
 import lombok.*;
 
@@ -9,7 +9,8 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+@Table(name = "Student")
+public class StudentEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +30,11 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "group_id")
-    private StudentGroup student;
+    private StudentGroupEntity student;
+
+    @ManyToOne
+    @JoinColumn(name = "statinf_id")
+    private StatinfEntity statinfEntity;
 
     private String login;
 
