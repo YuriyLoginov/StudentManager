@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Предмет</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div>
+    <h2>Создать предмет</h2>
+    <tr>
+        <div align="left">
+            <h3><a th:href="@{'/Subject/newSubject'}">Добавить</a></h3>
+        </div>
+
+    </tr>
+
+    <div class="col-sm-8" align="center">
+        <div class="panel-body" align="center">
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Duration</th>
+                    <th>TeacherId</th>
+                    <th>StatementId</th>
+                    <th>edit</th>
+                    <th>delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${subjectList}">
+                    <td th:text="${subjectList.id}">Course ID</td>
+                    <td th:text="${subjectList.name}">Course Name</td>
+                    <td th:text="${subjectList.duration}">Duration</td>
+
+                    <td>
+                        <a th:href="@{'/subject/eddit/' + ${subjectList.id}}">Edit</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/subject/eddit/' + ${subjectList.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-package com.Psuti.StudentManager.entity;
+package com.Psuti.StudentManager.Domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

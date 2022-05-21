@@ -1,4 +1,4 @@
-package com.Psuti.StudentManager.controller;
+package com.Psuti.StudentManager.Controller;
 
 import org.springframework.stereotype.Controller;
 
