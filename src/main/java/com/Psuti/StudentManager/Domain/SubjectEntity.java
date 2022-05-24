@@ -4,12 +4,11 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
-@Getter
-@Setter
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
+@Entity
 @Table(name = "Subject")
 public class SubjectEntity {
 
@@ -19,7 +18,7 @@ public class SubjectEntity {
 
     private String name;
 
-    private Integer hours;
+    private Integer duration;
 
     @ManyToOne
     @JoinColumn(name = "teacher_id")

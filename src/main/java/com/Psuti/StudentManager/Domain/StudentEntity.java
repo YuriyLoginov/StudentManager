@@ -5,10 +5,10 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "Student")
 public class StudentEntity {
 

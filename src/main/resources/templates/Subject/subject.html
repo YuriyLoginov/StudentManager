@@ -14,7 +14,7 @@
     <h2>Создать предмет</h2>
     <tr>
         <div align="left">
-            <h3><a th:href="@{'/Subject/newSubject'}">Добавить</a></h3>
+            <h3><a th:href="@{'/subject/newSubject'}">Добавить</a></h3>
         </div>
 
     </tr>
@@ -36,16 +36,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="course : ${subjectList}">
-                    <td th:text="${subjectList.id}">Course ID</td>
-                    <td th:text="${subjectList.name}">Course Name</td>
-                    <td th:text="${subjectList.duration}">Duration</td>
+                <tr th:each="subject : ${subjectList}">
+                    <td th:text="${subject.id}">Course ID</td>
+                    <td th:text="${subject.name}">Course Name</td>
+                    <td th:text="${subject.duration}">Duration</td>
 
                     <td>
-                        <a th:href="@{'/subject/eddit/' + ${subjectList.id}}">Edit</a>
+                        <a th:href="@{'/subject/eddit/' + ${subject.id}}">Edit</a>
                     </td>
                     <td>
-                        <a th:href="@{'/subject/eddit/' + ${subjectList.id}}">Delete</a>
+                        <a th:href="@{'/subject/delete/' + ${subject.id}}">Delete</a>
                     </td>
                 </tr>
                 </tbody>

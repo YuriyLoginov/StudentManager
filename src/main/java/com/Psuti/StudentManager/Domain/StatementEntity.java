@@ -6,11 +6,10 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@Builder
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @Table(name = "Statement")
 public class StatementEntity {
 

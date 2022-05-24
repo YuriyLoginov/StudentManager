@@ -4,11 +4,13 @@ import com.Psuti.StudentManager.Domain.StatinfEntity;
 import com.Psuti.StudentManager.Domain.StudentGroupEntity;
 import com.Psuti.StudentManager.Repository.GroupRepo;
 import com.Psuti.StudentManager.Repository.StatinfRepo;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class StatinfService {
     private StatinfRepo repo;
 

@@ -1,9 +1,9 @@
 package com.Psuti.StudentManager.Controller;
 
 import com.Psuti.StudentManager.Domain.SubjectEntity;
-import com.Psuti.StudentManager.Repository.SubjectRepo;
 import com.Psuti.StudentManager.Service.SubjectService;
-import lombok.Data;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@Data
+@AllArgsConstructor
 public class SubjectController {
 
-    private final SubjectService service;
+    private SubjectService service;
 
 
     @GetMapping("/subject")
@@ -25,21 +25,21 @@ public class SubjectController {
         return "Subject/subject";
     }
 
-    @GetMapping("/subject/new")
+    @GetMapping("/subject/newSubject")
     public String add(Model model) {
         List<SubjectEntity> subjectEntities = service.listAll();
         model.addAttribute("subjectList", subjectEntities);
-        model.addAttribute("subjectList", new SubjectEntity());
+        model.addAttribute("subject", new SubjectEntity());
         return "Subject/newSubject";
     }
 
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    @RequestMapping(value = "subject/save", method = RequestMethod.POST)
     public String saveSubject(@ModelAttribute("subject") SubjectEntity subject) {
         service.save(subject);
         return "redirect:/subject";
     }
 
-    @RequestMapping("/subject/eddit/{id}")
+    @RequestMapping("/subject/edit/{id}")
     public ModelAndView showEditSubjectPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("Subject/newSubject");
         SubjectEntity subjectEntity = service.get(id);
@@ -47,7 +47,7 @@ public class SubjectController {
         return mav;
     }
 
-    @RequestMapping("/delete/{id}")
+    @RequestMapping("/subject/delete/{id}")
     public String deleteSubjectPage(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/subject";

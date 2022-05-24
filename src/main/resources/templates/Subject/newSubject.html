@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="ISO-8859-1">
-    <title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Add Subject</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
     <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
@@ -11,7 +11,7 @@
     <h1>Create New Course</h1>
     <br />
     <div class="col-sm-4">
-        <form action="#" th:action="@{/Course/save}" th:object="${course}" method="post">
+        <form action="#" th:action="@{/subject/save}" th:object="${subject}" method="post">
 
 
             <div alight="left">
@@ -19,7 +19,7 @@
                     <label class="form-label" >Course Name</label>
                     <td>
                         <input type="hidden" th:field="*{id}" />
-                        <input type="text" th:field="*{coursename}" class="form-control" placeholder="Course Name" />
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="Course Name" />
                     </td>
                 </tr>
             </div>
@@ -41,6 +41,7 @@
             </tr>
 
         </form>
+        </div>
     </div>
 </body>
 </html>

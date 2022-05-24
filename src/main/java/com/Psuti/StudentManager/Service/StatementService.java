@@ -4,11 +4,13 @@ import com.Psuti.StudentManager.Domain.StatementEntity;
 import com.Psuti.StudentManager.Domain.StudentEntity;
 import com.Psuti.StudentManager.Repository.StatementRepo;
 import com.Psuti.StudentManager.Repository.StudentRepo;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@AllArgsConstructor
 public class StatementService {
     private StatementRepo repo;
 
