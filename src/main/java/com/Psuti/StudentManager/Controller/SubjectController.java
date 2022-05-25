@@ -3,7 +3,6 @@ package com.Psuti.StudentManager.Controller;
 import com.Psuti.StudentManager.Domain.SubjectEntity;
 import com.Psuti.StudentManager.Service.SubjectService;
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

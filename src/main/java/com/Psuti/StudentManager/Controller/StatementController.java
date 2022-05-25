@@ -1,7 +1,6 @@
 package com.Psuti.StudentManager.Controller;
 
 import com.Psuti.StudentManager.Domain.StatementEntity;
-import com.Psuti.StudentManager.Domain.StudentGroupEntity;
 import com.Psuti.StudentManager.Service.StatementService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
