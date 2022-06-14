@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="ru">
-
-<head>
+<head th:fragment="header">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <title>Home</title>
+    <title>Title</title>
 </head>
-
 <body>
-<div>
+
+<div th:fragment="navbar">
 
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h2>Student Home</h2>
+        <h1>Spring</h1>
+        <p>Web</p>
     </div>
 
     <nav class="navbar navbar-inverse">
@@ -31,9 +31,13 @@
 
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a th:href="@{'/user/home'}">Домашняя</a></li>
-                    <li><a th:href="@{'/user/statement'}">Ведомость</a></li>
-                    <li><a th:href="@{'/user/statinf'}">Информация о ведомости</a></li>
+                    <li class="active"><a th:href="@{'/home'}">Домашняя</a></li>
+                    <li><a th:href="@{'/teacher'}">Преподаватель</a></li>
+                    <li><a th:href="@{'/group'}">Группа</a></li>
+                    <li><a th:href="@{'/student'}">Студент</a></li>
+                    <li><a th:href="@{'/subject'}">Предмет</a></li>
+                    <li><a th:href="@{'/statement'}">Ведомость</a></li>
+                    <li><a th:href="@{'/statinf'}">Информация о ведомости</a></li>
                 </ul>
             </div>
 
@@ -41,13 +45,6 @@
     </nav>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
-            <h2>Домашняя страница</h2>
-        </div>
-    </div>
-</div>
 
 </body>
 </html>

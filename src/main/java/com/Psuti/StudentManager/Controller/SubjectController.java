@@ -12,19 +12,15 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/subject")
 public class SubjectController {
 
     private SubjectService service;
 
 
-    @GetMapping("/subject")
-    public String viewSubjectPage(Model model) {
-        List<SubjectEntity> subjectEntities = service.listAll();
-        model.addAttribute("subjectList", subjectEntities);
-        return "Subject/subject";
-    }
 
-    @GetMapping("/subject/newSubject")
+
+    @GetMapping("/newSubject")
     public String add(Model model) {
         List<SubjectEntity> subjectEntities = service.listAll();
         model.addAttribute("subjectList", subjectEntities);
@@ -32,13 +28,13 @@ public class SubjectController {
         return "Subject/newSubject";
     }
 
-    @RequestMapping(value = "subject/save", method = RequestMethod.POST)
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveSubject(@ModelAttribute("subject") SubjectEntity subject) {
         service.save(subject);
         return "redirect:/subject";
     }
 
-    @RequestMapping("/subject/edit/{id}")
+    @RequestMapping("/edit/{id}")
     public ModelAndView showEditSubjectPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("Subject/newSubject");
         SubjectEntity subjectEntity = service.get(id);
@@ -46,7 +42,7 @@ public class SubjectController {
         return mav;
     }
 
-    @RequestMapping("/subject/delete/{id}")
+    @RequestMapping("/delete/{id}")
     public String deleteSubjectPage(@PathVariable(name = "id") int id) {
         service.delete(id);
         return "redirect:/subject";

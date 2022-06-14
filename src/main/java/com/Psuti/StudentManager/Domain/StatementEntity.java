@@ -17,17 +17,17 @@ public class StatementEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Basic
-    @Temporal(TemporalType.DATE)
-    private java.util.Date date;
+    private String date;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statementEntity")
-    private List<SubjectEntity> subjectEntityList;
+    @ManyToOne
+    @JoinColumn(name = "subjectId")
+    private SubjectEntity subjectEntity;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "statementEntity")
     private List<StatinfEntity> statinfEntities;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statementEntity")
-    private List<StudentGroupEntity> studentGroupEntities;
+    @ManyToOne
+    @JoinColumn(name = "groupId")
+    private StudentGroupEntity studentGroupEntity;
 
 }

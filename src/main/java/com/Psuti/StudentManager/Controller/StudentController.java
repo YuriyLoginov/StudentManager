@@ -13,18 +13,14 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/student")
 public class StudentController {
 
     private StudentService studentService;
 
-    @GetMapping("/student")
-    public String viewSubjectPage(Model model) {
-        List<StudentEntity> studentEntities = studentService.listAll();
-        model.addAttribute("studentList", studentEntities);
-        return "Student/student";
-    }
 
-    @GetMapping("/student/newStudent")
+
+    @GetMapping("/newStudent")
     public String add(Model model) {
         List<StudentEntity> studentEntities = studentService.listAll();
         model.addAttribute("studentList", studentEntities);
@@ -32,22 +28,22 @@ public class StudentController {
         return "Student/newStudent";
     }
 
-    @RequestMapping(value = "student/save", method = RequestMethod.POST)
-    public String saveSubject(@ModelAttribute("student") StudentEntity student) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveStudent(@ModelAttribute("student") StudentEntity student) {
         studentService.save(student);
         return "redirect:/student";
     }
 
-    @RequestMapping("/student/edit/{id}")
-    public ModelAndView showEditSubjectPage(@PathVariable(name = "id") int id) {
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditStudentPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("Student/newStudent");
         StudentEntity studentEntity = studentService.get(id);
         mav.addObject("student", studentEntity);
         return mav;
     }
 
-    @RequestMapping("/student/delete/{id}")
-    public String deleteSubjectPage(@PathVariable(name = "id") int id) {
+    @RequestMapping("/delete/{id}")
+    public String deleteStudentPage(@PathVariable(name = "id") int id) {
         studentService.delete(id);
         return "redirect:/student";
     }

@@ -14,8 +14,7 @@
     <h2>Добавить студента</h2>
     <tr>
         <div align="left">
-            <h3><a th:href="@{'/teacher/home'}">Назад</a></h3>
-            <h3><a th:href="@{'/student/newStudent'}">Добавить</a></h3>
+            <h3><a th:href="@{'/user/home'}">Назад</a></h3>
         </div>
 
     </tr>
@@ -31,29 +30,18 @@
                     <th>Имя</th>
                     <th>Фамилия</th>
                     <th>Отчество</th>
-                    <th>Дата рождения</th>
-                    <th>Номер группы</th>
-                    <th>Курс</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="student : ${liststudent}">
+<!--                <tr th:each="student : ${studentList}">
                     <td th:text="${student.id}">ID</td>
-                    <td th:text="${student.cource}">First Name</td>
-                    <td th:text="${student.dateOfBirdth}">Last Name</td>
+                    <td th:text="${student.FirstName}">First Name</td>
+                    <td th:text="${student.LastName}">Last Name</td>
                     <td th:text="${student.Patronymic}">Patronymic</td>
                     <td th:text="${student.dateOfBirth}">Дата рождения</td>
                     <td th:text="${student.id}">Номер группы</td>
                     <td th:text="${student.course}">Курс</td>
-                    <td>
-                        <a th:href="@{'/student/eddit/' + ${student.id}}">Edit</a>
-                    </td>
-                    <td>
-                        <a th:href="@{'/student/delete/' + ${student.id}}">Delete</a>
-                    </td>
-                </tr>
+                </tr>-->
                 </tbody>
             </table>
         </div>

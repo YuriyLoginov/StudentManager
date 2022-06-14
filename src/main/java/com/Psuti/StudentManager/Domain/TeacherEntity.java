@@ -1,5 +1,6 @@
 package com.Psuti.StudentManager.Domain;
 
+import com.Psuti.StudentManager.Domain.enums.Role;
 import lombok.*;
 
 import javax.persistence.*;
@@ -28,5 +29,8 @@ public class TeacherEntity {
     private String login;
 
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 }

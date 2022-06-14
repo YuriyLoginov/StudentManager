@@ -1,8 +1,10 @@
 package com.Psuti.StudentManager.Domain;
 
+import com.Psuti.StudentManager.Domain.enums.Role;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,22 +24,21 @@ public class StudentEntity {
 
     private String patronymic;
 
-    @Basic
-    @Temporal(TemporalType.DATE)
-    private java.util.Date dateOfBirth;
+    private String dateOfBirth;
 
     private String course;
 
     @ManyToOne
-    @JoinColumn(name = "group_id")
-    private StudentGroupEntity student;
+    @JoinColumn(name = "groupId")
+    private StudentGroupEntity studentGroup;
 
-    @ManyToOne
-    @JoinColumn(name = "statinf_id")
-    private StatinfEntity statinfEntity;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentEntity")
+    private List<StatinfEntity> statinfEntities;
 
     private String login;
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 }

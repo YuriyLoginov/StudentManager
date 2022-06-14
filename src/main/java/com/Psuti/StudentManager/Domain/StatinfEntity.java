@@ -18,11 +18,13 @@ public class StatinfEntity {
 
     private Long grade;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "statinfEntity")
-    private List<StudentEntity> studentEntities;
+    @ManyToOne
+    @JoinColumn(name = "studentId")
+    private StudentEntity studentEntity;
+
 
     @ManyToOne
-    @JoinColumn(name = "statement_id")
+    @JoinColumn(name = "statementId")
     private StatementEntity statementEntity;
 
 }

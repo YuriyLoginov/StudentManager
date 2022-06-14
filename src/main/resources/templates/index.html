@@ -2,14 +2,40 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3" lang="ru">
 <head>
-  <title>Student Manager</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Вход</title>
 </head>
-<body>
+
+
 <div>
-  <h1>Student Manager</h1>
+
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <h2>Войти как:</h2>
+  </div>
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Student Manager</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a th:href="@{'user/home'}">Студент</a></li>
+          <li><a th:href="@{'teacher/home'}">Преподаватель</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </div>
-  <p>Sing in</p>
-    <input type="submit" value="Student"/>
-    <input type="submit" value="Teacher"/>
 </body>
 </html>

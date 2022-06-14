@@ -1,10 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Statement</title>
+    <meta charset="utf-8">
+    <title>Ведомость</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
+<div>
+    <h2>Добавить Ведомость</h2>
+    <tr>
+        <div align="left">
+            <h3><a th:href="@{'/teacher/home'}">Назад</a></h3>
+            <h3><a th:href="@{'/statement/newStatement'}">Добавить</a></h3>
+        </div>
+
+    </tr>
+
+    <div class="col-sm-8" align="center">
+        <div class="panel-body" align="center">
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Дата</th>
+                    <th>Группа</th>
+                    <th>Предмет</th>
+
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="statement : ${statementList}">
+                    <td th:text="${statement.id}">ID</td>
+                    <td th:text="${statement.date}">Дата</td>
+                    <td th:text="${statement.id}">Группа</td>
+                    <td th:text="${statement.id}">Предмет</td>
+                    <td>
+                        <a th:href="@{'/statement/eddit/' + ${statement.id}}">Edit</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/statement/delete/' + ${statement.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

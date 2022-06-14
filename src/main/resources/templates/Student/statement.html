@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Студент</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div>
+    <h2>Добавить студента</h2>
+    <tr>
+        <div align="left">
+            <h3><a th:href="@{'/user/home'}">Назад</a></h3>
+        </div>
+
+    </tr>
+
+    <div class="col-sm-8" align="center">
+        <div class="panel-body" align="center">
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>id</th>
+                    <th>id</th>
+                    <th>id</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="statement : ${statementList}">
+                    <td th:text="${statement.id}">ID</td>
+                    <td th:text="${statement.id}">First Name</td>
+                    <td th:text="${statement.id}">First Name</td>
+                    <td th:text="${statement.date}">Last Name</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -12,19 +12,19 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/group")
 public class GroupController {
 
     private GroupService groupService;
 
-
     @GetMapping("/group")
-    public String viewSubjectPage(Model model) {
+    public String viewGroupPage(Model model) {
         List<StudentGroupEntity> groupEntities = groupService.listAll();
         model.addAttribute("groupList", groupEntities);
         return "Group/group";
     }
 
-    @GetMapping("/group/newGroup")
+    @GetMapping("/newGroup")
     public String add(Model model) {
         List<StudentGroupEntity> groupEntities = groupService.listAll();
         model.addAttribute("groupList", groupEntities);
@@ -32,22 +32,22 @@ public class GroupController {
         return "Group/newGroup";
     }
 
-    @RequestMapping(value = "group/save", method = RequestMethod.POST)
-    public String saveSubject(@ModelAttribute("group") StudentGroupEntity group) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveGroup(@ModelAttribute("group") StudentGroupEntity group) {
         groupService.save(group);
         return "redirect:/group";
     }
 
     @RequestMapping("/group/edit/{id}")
-    public ModelAndView showEditSubjectPage(@PathVariable(name = "id") int id) {
+    public ModelAndView showEditGroupPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("Group/newGroup");
         StudentGroupEntity groupEntity = groupService.get(id);
         mav.addObject("group", groupEntity);
         return mav;
     }
 
-    @RequestMapping("/group/delete/{id}")
-    public String deleteSubjectPage(@PathVariable(name = "id") int id) {
+    @RequestMapping("/delete/{id}")
+    public String deleteGroupPage(@PathVariable(name = "id") int id) {
         groupService.delete(id);
         return "redirect:/group";
     }

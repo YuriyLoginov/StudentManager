@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>Преподаватель</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 
+<div>
+    <h2>Добавить преподавателя</h2>
+    <tr>
+        <div align="left">
+            <h3><a th:href="@{'/teacher/home'}">Назад</a></h3>
+            <h3><a th:href="@{'/teacher/newTeacher'}">Добавить</a></h3>
+        </div>
+
+    </tr>
+
+    <div class="col-sm-8" align="center">
+        <div class="panel-body" align="center">
+
+
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Фамилия</th>
+                    <th>Отчество</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="teacher : ${teacherList}">
+                    <td th:text="${teacher.id}">ID</td>
+                    <td th:text="${teacher.FirstName}">Name</td>
+                    <td th:text="${teacher.LastName}">Last Name</td>
+                    <td th:text="${teacher.Patronymic}">Patronymic</td>
+                    <td>
+                        <a th:href="@{'/teacher/eddit/' + ${teacher.id}}">Edit</a>
+                    </td>
+                    <td>
+                        <a th:href="@{'/teacher/delete/' + ${teacher.id}}">Delete</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 </body>
 </html>

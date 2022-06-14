@@ -3,6 +3,7 @@ package com.Psuti.StudentManager.Domain;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,10 +22,10 @@ public class SubjectEntity {
     private Integer duration;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id")
+    @JoinColumn(name = "teacherId")
     private TeacherEntity teacherEntity;
 
-    @ManyToOne
-    @JoinColumn(name = "statement_id")
-    private StatementEntity statementEntity;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "subjectEntity")
+    private List<StatementEntity> statementEntities;
+
 }

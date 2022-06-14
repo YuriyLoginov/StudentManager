@@ -1,10 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Teacher</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </head>
 <body>
+<div align="center">
+    <h1>Create New Teacher</h1>
+    <br />
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/teacher/save}" th:object="${teacher}" method="post">
 
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Имя</label>
+                    <td>
+                        <input type="hidden" th:field="*{id}" />
+                        <input type="text" th:field="*{firstName}" class="form-control" placeholder="FirstName" />
+                    </td>
+                </tr>
+            </div>
+
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Фамилия</label>
+
+                    <td>
+                        <input type="text" th:field="*{lastName}" class="form-control" placeholder="LastName" />
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Отчество</label>
+
+                    <td>
+                        <input type="text" th:field="*{patronymic}" class="form-control" placeholder="Patronymic" />
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Логин</label>
+
+                    <td>
+                        <input type="text" th:field="*{login}" class="form-control" placeholder="Login" />
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label" >Пароль</label>
+
+                    <td>
+                        <input type="text" th:field="*{password}" class="form-control" placeholder="Password" />
+                    </td>
+                </tr>
+            </div>
+
+            <br>
+            <tr>
+                <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+
+        </form>
+    </div>
+</div>
 </body>
 </html>

@@ -12,18 +12,14 @@ import java.util.List;
 
 @Controller
 @AllArgsConstructor
+@RequestMapping("/teacher")
 public class TeacherController {
 
     private TeacherService teacherService;
 
-    @GetMapping("/teacher")
-    public String viewSubjectPage(Model model) {
-        List<TeacherEntity> teacherEntities = teacherService.listAll();
-        model.addAttribute("teacherList", teacherEntities);
-        return "Teacher/teacher";
-    }
 
-    @GetMapping("/teacher/newTeacher")
+
+    @GetMapping("/newTeacher")
     public String add(Model model) {
         List<TeacherEntity> teacherEntities = teacherService.listAll();
         model.addAttribute("teacherList", teacherEntities);
@@ -31,22 +27,22 @@ public class TeacherController {
         return "Teacher/newTeacher";
     }
 
-    @RequestMapping(value = "teacher/save", method = RequestMethod.POST)
-    public String saveSubject(@ModelAttribute("teacher") TeacherEntity teacher) {
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
+    public String saveTeacher(@ModelAttribute("teacher") TeacherEntity teacher) {
         teacherService.save(teacher);
         return "redirect:/teacher";
     }
 
-    @RequestMapping("/teacher/edit/{id}")
-    public ModelAndView showEditSubjectPage(@PathVariable(name = "id") int id) {
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditTeacherPage(@PathVariable(name = "id") int id) {
         ModelAndView mav = new ModelAndView("Teacher/newTeacher");
         TeacherEntity teacher = teacherService.get(id);
         mav.addObject("teacher", teacher);
         return mav;
     }
 
-    @RequestMapping("/teacher/delete/{id}")
-    public String deleteSubjectPage(@PathVariable(name = "id") int id) {
+    @RequestMapping("/delete/{id}")
+    public String deleteTeacherPage(@PathVariable(name = "id") int id) {
         teacherService.delete(id);
         return "redirect:/teacher";
     }

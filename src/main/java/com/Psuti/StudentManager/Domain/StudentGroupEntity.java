@@ -23,10 +23,10 @@ public class StudentGroupEntity {
 
     private String Name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "student")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentGroup")
     private List<StudentEntity> studentEntities;
 
-    @ManyToOne
-    @JoinColumn(name = "statement_id")
-    private StatementEntity statementEntity;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "studentGroupEntity")
+    private List<StatementEntity> statementEntities;
+
 }
