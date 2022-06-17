@@ -1,8 +1,7 @@
 package com.Psuti.StudentManager.Controller;
 
-import com.Psuti.StudentManager.DAO.StudentDAO;
+
 import com.Psuti.StudentManager.Domain.*;
-import com.Psuti.StudentManager.Repository.StudentRepo;
 import com.Psuti.StudentManager.Service.*;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,7 +22,7 @@ public class IndexController {
     private StatinfService statinfService;
     private SubjectService subjectService;
     private TeacherService teacherService;
-    private StudentRepo studentRepo;
+    private StudentService studentService;
 
 
     @RequestMapping(value = "/teacher/home", method = RequestMethod.GET)
@@ -53,24 +51,10 @@ public class IndexController {
         return "Statinf/statinf";
     }
 
-    @RequestMapping(value = "/student", method = RequestMethod.GET)
+    @RequestMapping("/student")
     public String viewStudentPage(Model model) {
-        List<StudentDAO> list = new ArrayList<>();
-        for (Object[] o : studentRepo.findStudent()) {
-            StudentDAO student = new StudentDAO();
-            student.setId(Long.parseLong(String.valueOf(o[0])));
-            student.setCourse((String) o [1]);
-            student.setDateOfBirth((String) o [2]);
-            student.setFirstName((String) o[3]);
-            student.setLastName((String) o [4]);
-            student.setLogin((String) o [5]);
-            student.setPassword((String) o [6]);
-            student.setPatronymic((String) o [7]);
-            student.setGroupId((String) o [8]);
-            student.setRole((String) o [9]);
-            list.add(student);
-        }
-        model.addAttribute("liststudent",list);
+        List<StudentEntity> studentEntities = studentService.listAll();
+        model.addAttribute("studentList", studentEntities);
         return "Student/student";
     }
 

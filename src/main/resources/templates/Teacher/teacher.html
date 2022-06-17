@@ -28,8 +28,8 @@
                 <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>Имя</th>
                     <th>Фамилия</th>
+                    <th>Имя</th>
                     <th>Отчество</th>
                     <th>Edit</th>
                     <th>Delete</th>
@@ -38,8 +38,8 @@
                 <tbody>
                 <tr th:each="teacher : ${teacherList}">
                     <td th:text="${teacher.id}">ID</td>
-                    <td th:text="${teacher.FirstName}">Name</td>
-                    <td th:text="${teacher.LastName}">Last Name</td>
+                    <td th:text="${teacher.LastName}">Name</td>
+                    <td th:text="${teacher.FirstName}">Last Name</td>
                     <td th:text="${teacher.Patronymic}">Patronymic</td>
                     <td>
                         <a th:href="@{'/teacher/eddit/' + ${teacher.id}}">Edit</a>

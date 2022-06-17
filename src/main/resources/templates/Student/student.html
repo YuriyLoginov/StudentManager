@@ -39,11 +39,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr th:each="student : ${liststudent}">
+                <tr th:each="student : ${studentList}">
                     <td th:text="${student.id}">ID</td>
-                    <td th:text="${student.cource}">First Name</td>
-                    <td th:text="${student.dateOfBirdth}">Last Name</td>
-                    <td th:text="${student.Patronymic}">Patronymic</td>
+                    <td th:text="${student.firstName}">First Name</td>
+                    <td th:text="${student.lastName}">Last Name</td>
+                    <td th:text="${student.patronymic}">Patronymic</td>
                     <td th:text="${student.dateOfBirth}">Дата рождения</td>
                     <td th:text="${student.id}">Номер группы</td>
                     <td th:text="${student.course}">Курс</td>
